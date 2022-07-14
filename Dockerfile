@@ -4,8 +4,13 @@ FROM python:3.9.13-bullseye
 
 USER root
 
-RUN addgroup -g 1000 jenkins
-RUN adduser -h /home/jenkins -u 1000 -G jenkins -D jenkins
+ARG user=jenkins
+ARG group=jenkins
+ARG uid=1000
+ARG gid=1000
+
+RUN groupadd -g ${gid} ${group}
+RUN useradd -c "Jenkins user" -d /home/${user} -u ${uid} -g ${gid} -m ${user}
 
 RUN apt-get update
 RUN apt-get install openjdk11-jre
