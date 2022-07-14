@@ -19,8 +19,8 @@ COPY --from=jnlp /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-agent
 COPY --from=jnlp /usr/share/jenkins/agent.jar /usr/share/jenkins/agent.jar
 
 COPY requirements.txt requirements.txt
-RUN apt-get -y install gcc build-base linux-headers ca-certificates \
-    libffi-dev libressl-dev libxslt-dev curl bash git git-lfs musl-locales \
+RUN apt-get -y install gcc build-essential ca-certificates \
+    libffi-dev  libxslt-dev curl bash git git-lfs  \
     openssh-client openssl procps
 RUN pip install -r requirements.txt
 
