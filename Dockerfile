@@ -17,6 +17,7 @@ RUN apk add -U --no-cache gcc build-base linux-headers ca-certificates \
     libffi-dev libressl-dev libxslt-dev curl bash git git-lfs musl-locales \
     openssh-client openssl procps
 RUN pip install -r requirements.txt
+RUN apk add gcompat
 
 USER jenkins
 RUN mkdir /home/jenkins/.jenkins && mkdir -p /home/jenkins/agent
