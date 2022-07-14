@@ -13,7 +13,7 @@ RUN groupadd -g ${gid} ${group}
 RUN useradd -c "Jenkins user" -d /home/${user} -u ${uid} -g ${gid} -m ${user}
 
 RUN apt-get update
-RUN apt-get install openjdk11-jre
+RUN apt-get install openjdk-11-jre
 
 COPY --from=jnlp /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-agent
 COPY --from=jnlp /usr/share/jenkins/agent.jar /usr/share/jenkins/agent.jar
