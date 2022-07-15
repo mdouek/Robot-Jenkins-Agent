@@ -18,6 +18,9 @@ RUN apk add -U --no-cache gcc build-base linux-headers ca-certificates \
     openssh-client openssl procps
 RUN pip install -r requirements.txt
 
+RUN wget "https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip"
+RUN unzip BrowserStackLocal-linux-x64.zip
+
 USER jenkins
 RUN mkdir /home/jenkins/.jenkins && mkdir -p /home/jenkins/agent
 VOLUME /home/jenkins/.jenkins
