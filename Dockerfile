@@ -24,7 +24,6 @@ RUN apt-get -y install gcc build-essential ca-certificates \
     openssh-client openssl procps
 RUN pip install -r requirements.txt
 
-RUN cd /home/jenkins
 RUN wget "https://www.browserstack.com/browserstack-local/BrowserStackLocal-linux-x64.zip"
 RUN unzip BrowserStackLocal-linux-x64.zip
 
