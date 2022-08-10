@@ -1,6 +1,6 @@
 FROM jenkins/inbound-agent:4.6-1 as jnlp
 
-FROM python:3.9.13-bullseye
+FROM python:3.10-bullseye
 
 USER root
 
