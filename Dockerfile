@@ -1,4 +1,5 @@
-FROM jenkins/inbound-agent:4.6-1 as jnlp
+ARG agent_version=3192.v713e3b_039fb_e-1
+FROM jenkins/inbound-agent:${agent_version}-jdk11 as jnlp 
 
 FROM python:3.10-bullseye
 
@@ -17,6 +18,8 @@ RUN apt-get install -y openjdk-11-jre
 
 COPY --from=jnlp /usr/local/bin/jenkins-agent /usr/local/bin/jenkins-agent
 COPY --from=jnlp /usr/share/jenkins/agent.jar /usr/share/jenkins/agent.jar
+
+RUN pip install --upgrade setuptools
 
 COPY requirements.txt requirements.txt
 RUN apt-get -y install gcc build-essential ca-certificates \
