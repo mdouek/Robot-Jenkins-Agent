@@ -1,7 +1,7 @@
 ARG agent_version=3192.v713e3b_039fb_e-1
 FROM jenkins/inbound-agent:${agent_version}-jdk11 as jnlp 
 
-FROM python:3.10-bullseye
+FROM python:3.12.6-bullseye
 
 USER root
 
